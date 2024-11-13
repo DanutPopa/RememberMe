@@ -8,11 +8,42 @@
 import SwiftUI
 
 struct NamePhotoView: View {
+    @Binding var photoName: String
+    @Binding var isPresented: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Name your photo")
+                .font(.headline)
+                .padding()
+            
+            TextField("Enter photo name", text: $photoName)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+            
+            HStack {
+                Button("Cancel") { isPresented = false }
+                    .padding()
+                
+                Spacer()
+                
+                Button("Save") {
+                    // Handle the save action, e.g, save the photo name
+                    isPresented = false
+                    print("Photo named: \(photoName)")
+                }
+                .padding()
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 200)
+        .background(Color.white)
+        .clipShape(.rect(cornerRadius: 10))
+        .shadow(radius: 10)
+        .padding()
     }
 }
 
 #Preview {
-    NamePhotoView()
+    NamePhotoView(photoName: .constant(""), isPresented: .constant(false))
 }
