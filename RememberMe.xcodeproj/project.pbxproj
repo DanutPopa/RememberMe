@@ -36,6 +36,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C53E7102CE61C2400D23BD8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0C53E70E2CE616D000D23BD8 /* ContentView-ViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0C53E7112CE61C3D00D23BD8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0CB7E4602CE4DBFC004F4C68 /* ContentView.swift */,
+				0CB7E46C2CE4FCE3004F4C68 /* NamePhotoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0C53E7122CE61C5300D23BD8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0CB7E45E2CE4DBFC004F4C68 /* RememberMeApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		0CB7E4522CE4DBFC004F4C68 = {
 			isa = PBXGroup;
 			children = (
@@ -55,10 +80,9 @@
 		0CB7E45D2CE4DBFC004F4C68 /* RememberMe */ = {
 			isa = PBXGroup;
 			children = (
-				0CB7E45E2CE4DBFC004F4C68 /* RememberMeApp.swift */,
-				0CB7E4602CE4DBFC004F4C68 /* ContentView.swift */,
-				0C53E70E2CE616D000D23BD8 /* ContentView-ViewModel.swift */,
-				0CB7E46C2CE4FCE3004F4C68 /* NamePhotoView.swift */,
+				0C53E7122CE61C5300D23BD8 /* App */,
+				0C53E7112CE61C3D00D23BD8 /* Views */,
+				0C53E7102CE61C2400D23BD8 /* Models */,
 				0CB7E4622CE4DBFF004F4C68 /* Assets.xcassets */,
 				0CB7E4642CE4DBFF004F4C68 /* Preview Content */,
 			);
