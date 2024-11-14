@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NamePhotoView: View {
     @Binding var photoName: String
-    @Binding var isPresented: Bool
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
@@ -22,14 +22,14 @@ struct NamePhotoView: View {
                 .padding()
             
             HStack {
-                Button("Cancel") { isPresented = false }
+                Button("Cancel") { dismiss() }
                     .padding()
                 
                 Spacer()
                 
                 Button("Save") {
                     // Handle the save action, e.g, save the photo name
-                    isPresented = false
+                    dismiss()
                     print("Photo named: \(photoName)")
                 }
                 .padding()
@@ -45,5 +45,5 @@ struct NamePhotoView: View {
 }
 
 #Preview {
-    NamePhotoView(photoName: .constant(""), isPresented: .constant(false))
+    NamePhotoView(photoName: .constant(""))
 }

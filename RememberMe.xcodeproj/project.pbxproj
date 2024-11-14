@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C53E70F2CE616D000D23BD8 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53E70E2CE616D000D23BD8 /* ContentView-ViewModel.swift */; };
 		0CB7E45F2CE4DBFC004F4C68 /* RememberMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB7E45E2CE4DBFC004F4C68 /* RememberMeApp.swift */; };
 		0CB7E4612CE4DBFC004F4C68 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB7E4602CE4DBFC004F4C68 /* ContentView.swift */; };
 		0CB7E4632CE4DBFF004F4C68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CB7E4622CE4DBFF004F4C68 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C53E70E2CE616D000D23BD8 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 		0CB7E45B2CE4DBFC004F4C68 /* RememberMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RememberMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CB7E45E2CE4DBFC004F4C68 /* RememberMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberMeApp.swift; sourceTree = "<group>"; };
 		0CB7E4602CE4DBFC004F4C68 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,7 +39,6 @@
 		0CB7E4522CE4DBFC004F4C68 = {
 			isa = PBXGroup;
 			children = (
-				0CB7E46C2CE4FCE3004F4C68 /* NamePhotoView.swift */,
 				0CB7E45D2CE4DBFC004F4C68 /* RememberMe */,
 				0CB7E45C2CE4DBFC004F4C68 /* Products */,
 			);
@@ -56,6 +57,8 @@
 			children = (
 				0CB7E45E2CE4DBFC004F4C68 /* RememberMeApp.swift */,
 				0CB7E4602CE4DBFC004F4C68 /* ContentView.swift */,
+				0C53E70E2CE616D000D23BD8 /* ContentView-ViewModel.swift */,
+				0CB7E46C2CE4FCE3004F4C68 /* NamePhotoView.swift */,
 				0CB7E4622CE4DBFF004F4C68 /* Assets.xcassets */,
 				0CB7E4642CE4DBFF004F4C68 /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CB7E4612CE4DBFC004F4C68 /* ContentView.swift in Sources */,
+				0C53E70F2CE616D000D23BD8 /* ContentView-ViewModel.swift in Sources */,
 				0CB7E45F2CE4DBFC004F4C68 /* RememberMeApp.swift in Sources */,
 				0CB7E46D2CE4FCE3004F4C68 /* NamePhotoView.swift in Sources */,
 			);

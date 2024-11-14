@@ -9,33 +9,24 @@ import SwiftUI
 import PhotosUI
 
 struct ContentView: View {
-    @State private var pickerItem: PhotosPickerItem?
-    @State private var selectedImage: Image?
-    
+    @State private var viewModel = ViewModel()
     @State private var showingNamingPrompt = false
-    @State private var photoName = ""
     
     var body: some View {
         VStack {
-            PhotosPicker(selection: $pickerItem, matching: .all(of: [.images, .not(.screenshots)])) {
+            PhotosPicker(selection: $viewModel.pickerItem, matching: .all(of: [.images, .not(.screenshots)])) {
                 Label("Select a picture", systemImage: "photo")
             }
             
-            if showingNamingPrompt {
-                NamePhotoView(photoName: $photoName, isPresented: $showingNamingPrompt)
-            } else {
-                selectedImage?
-                    .resizable()
-                    .scaledToFit()
-            }
-            
         }
-        .onChange(of: pickerItem) { _, newItem in
-            guard newItem != nil else { return }
+        .sheet(isPresented: $showingNamingPrompt) {
+            NamePhotoView(photoName: $viewModel.photoName)
+        }
+        .onChange(of: viewModel.pickerItem) {
             // When a photo is selected, show the name prompt
             showingNamingPrompt = true
             Task {
-                selectedImage = try await pickerItem?.loadTransferable(type: Image.self)
+                try await viewModel.loadSelectedImage()
             }
         }
     }
