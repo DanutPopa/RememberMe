@@ -12,11 +12,27 @@ extension ContentView {
     @Observable
     class ViewModel {
         var pickerItem: PhotosPickerItem?
-        private(set) var selectedImage: Data?
-        var photoName = ""
+        var selectedImage: Data?
+        var namedFaces: [NamedFace]
         
-        func loadSelectedImage() async throws {
-            selectedImage = try await pickerItem?.loadTransferable(type: Data.self)
+        let savePath = URL.documentsDirectory.appending(path: "SavedPhotos")
+        
+        init() {
+            do {
+                let data = try Data(contentsOf: savePath)
+                namedFaces = try JSONDecoder().decode([NamedFace].self, from: data)
+            } catch {
+                namedFaces = []
+            }
+        }
+        
+        func save() {
+            do {
+                let data = try JSONEncoder().encode(namedFaces)
+                try data.write(to: savePath, options: [.atomic, .completeFileProtection])
+            } catch {
+                print("Unable to save data.")
+            }
         }
     }
 }

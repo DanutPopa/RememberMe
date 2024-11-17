@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct NamePhotoView: View {
-    @Binding var photoName: String
     @Environment(\.dismiss) var dismiss
+    var onSave: (NamedFace) -> Void
+    
+    @State private var photoName: String
+    
     
     var body: some View {
         VStack {
@@ -42,8 +45,14 @@ struct NamePhotoView: View {
         .shadow(radius: 10)
         .padding()
     }
+    
+    init(namedFace: NamedFace, onSave: @escaping (NamedFace) -> Void) {
+        self.onSave = onSave
+        
+        _photoName = State(initialValue: namedFace.name)
+    }
 }
 
 #Preview {
-    NamePhotoView(photoName: .constant(""))
+    NamePhotoView(namedFace: .example, onSave: { _ in })
 }
