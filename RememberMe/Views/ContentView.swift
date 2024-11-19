@@ -12,9 +12,32 @@ struct ContentView: View {
     @State private var viewModel = ViewModel()
     
     var body: some View {
-        VStack {
-            PhotosPicker(selection: $viewModel.pickerItem, matching: .all(of: [.images, .not(.screenshots)])) {
-                Label("Select a picture", systemImage: "photo")
+        NavigationStack {
+            List(viewModel.namedFaces.sorted()) { namedFace in
+                NavigationLink {
+                    DetailView()
+                } label: {
+                    VStack {
+                        Text(namedFace.name)
+                            .font(.headline)
+                        
+                        if let image = namedFace.image {
+                            image
+                                .resizable()
+                                .scaledToFit()
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+
+            }
+            .navigationTitle("NamedFace")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    PhotosPicker(selection: $viewModel.pickerItem, matching: .images) {
+                        Label("Select a photo", systemImage: "photo")
+                    }
+                }
             }
         }
         .sheet(item: $viewModel.selectedFace) { namedFace in

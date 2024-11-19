@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NamedFace: Codable, Identifiable, Equatable {
+struct NamedFace: Codable, Identifiable, Comparable {
     var id: UUID
     var name: String
     var imageData: Data
@@ -17,6 +17,10 @@ struct NamedFace: Codable, Identifiable, Equatable {
         } else {
             return nil
         }
+    }
+    
+    static func <(lhs: NamedFace, rhs: NamedFace) -> Bool {
+        lhs.name < rhs.name
     }
     
     static let example = NamedFace(id: UUID(), name: "", imageData: Data())

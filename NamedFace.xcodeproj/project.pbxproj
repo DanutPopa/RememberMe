@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C24E58D2CECF5A100538090 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C24E58C2CECF5A100538090 /* DetailView.swift */; };
 		0C53E70F2CE616D000D23BD8 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53E70E2CE616D000D23BD8 /* ContentView-ViewModel.swift */; };
 		0C8789712CE631020074C820 /* NamedFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8789702CE631020074C820 /* NamedFace.swift */; };
 		0CB7E45F2CE4DBFC004F4C68 /* RememberMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB7E45E2CE4DBFC004F4C68 /* RememberMeApp.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C24E58C2CECF5A100538090 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0C53E70E2CE616D000D23BD8 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 		0C8789702CE631020074C820 /* NamedFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedFace.swift; sourceTree = "<group>"; };
 		0CB7E45B2CE4DBFC004F4C68 /* RememberMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RememberMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				0CB7E4602CE4DBFC004F4C68 /* ContentView.swift */,
+				0C24E58C2CECF5A100538090 /* DetailView.swift */,
 				0CB7E46C2CE4FCE3004F4C68 /* NamePhotoView.swift */,
 			);
 			path = Views;
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CB7E4612CE4DBFC004F4C68 /* ContentView.swift in Sources */,
+				0C24E58D2CECF5A100538090 /* DetailView.swift in Sources */,
 				0C53E70F2CE616D000D23BD8 /* ContentView-ViewModel.swift in Sources */,
 				0C8789712CE631020074C820 /* NamedFace.swift in Sources */,
 				0CB7E45F2CE4DBFC004F4C68 /* RememberMeApp.swift in Sources */,
