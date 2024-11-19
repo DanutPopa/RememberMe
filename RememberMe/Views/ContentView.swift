@@ -15,7 +15,7 @@ struct ContentView: View {
         NavigationStack {
             List(viewModel.namedFaces.sorted()) { namedFace in
                 NavigationLink {
-                    DetailView()
+                    DetailView(namedFace: namedFace)
                 } label: {
                     VStack {
                         Text(namedFace.name)

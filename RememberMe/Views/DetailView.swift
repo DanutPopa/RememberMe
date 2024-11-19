@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct DetailView: View {
+    let namedFace: NamedFace
+    
     var body: some View {
-        Text("Detail View")
+        NavigationStack {
+            if let image = namedFace.image {
+                image
+                    .resizable()
+                    .scaledToFill()
+            }
+        }
     }
 }
 
 #Preview {
-    DetailView()
+    DetailView(namedFace: NamedFace.example)
 }
