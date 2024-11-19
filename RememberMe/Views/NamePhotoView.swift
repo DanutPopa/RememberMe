@@ -11,8 +11,8 @@ struct NamePhotoView: View {
     @Environment(\.dismiss) var dismiss
     var onSave: (NamedFace) -> Void
     
-    @State private var photoName: String
-    
+    @State private var photoName = ""
+    @State private var imageData: Data
     
     var body: some View {
         VStack {
@@ -31,9 +31,10 @@ struct NamePhotoView: View {
                 Spacer()
                 
                 Button("Save") {
-                    // Handle the save action, e.g, save the photo name
+                    let newNamedFace = NamedFace(id: UUID(), name: photoName, imageData: imageData)
+                    onSave(newNamedFace)
                     dismiss()
-                    print("Photo named: \(photoName)")
+                    print("Saved photo named: \(photoName)")
                 }
                 .padding()
             }
@@ -49,7 +50,7 @@ struct NamePhotoView: View {
     init(namedFace: NamedFace, onSave: @escaping (NamedFace) -> Void) {
         self.onSave = onSave
         
-        _photoName = State(initialValue: namedFace.name)
+        _imageData = State(initialValue: namedFace.imageData)
     }
 }
 

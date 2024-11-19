@@ -17,10 +17,14 @@ struct ContentView: View {
                 Label("Select a picture", systemImage: "photo")
             }
         }
-        
+        .sheet(item: $viewModel.selectedFace) { namedFace in
+            NamePhotoView(namedFace: namedFace) { newNamedFace in
+                viewModel.addNamedFace(namedFace: newNamedFace)
+            }
+        }
         .onChange(of: viewModel.pickerItem) {
             Task {
-                viewModel.selectedImage = try await viewModel.pickerItem?.loadTransferable(type: Data.self)
+                try await viewModel.loadImage()
             }
         }
     }

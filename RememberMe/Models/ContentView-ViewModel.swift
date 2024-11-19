@@ -12,8 +12,9 @@ extension ContentView {
     @Observable
     class ViewModel {
         var pickerItem: PhotosPickerItem?
-        var selectedImage: Data?
+        var selectedImageData: Data?
         var namedFaces: [NamedFace]
+        var selectedFace: NamedFace?
         
         let savePath = URL.documentsDirectory.appending(path: "SavedPhotos")
         
@@ -33,6 +34,18 @@ extension ContentView {
             } catch {
                 print("Unable to save data.")
             }
+        }
+        
+        func loadImage() async throws {
+            selectedImageData = try await pickerItem?.loadTransferable(type: Data.self)
+            if let selectedImageData {
+                selectedFace = NamedFace(id: UUID(), name: "", imageData: selectedImageData)
+            }
+        }
+        
+        func addNamedFace(namedFace: NamedFace) {
+            namedFaces.append(namedFace)
+            save()
         }
     }
 }
