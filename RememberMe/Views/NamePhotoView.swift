@@ -13,6 +13,7 @@ struct NamePhotoView: View {
     
     @State private var photoName = ""
     @State private var imageData: Data
+    let locationFetcher = LocationFetcher()
     
     var body: some View {
         VStack {
@@ -31,10 +32,12 @@ struct NamePhotoView: View {
                 Spacer()
                 
                 Button("Save") {
-                    let newNamedFace = NamedFace(id: UUID(), name: photoName, imageData: imageData)
-                    onSave(newNamedFace)
+                    if let currentLocation = locationFetcher.lastKnownLocation {
+                        let location = Location(id: UUID(), latitude: currentLocation.latitude, longitude: currentLocation.longitude)
+                        let newNamedLocationFace = NamedFace(id: UUID(), name: photoName, imageData: imageData, location: location)
+                        onSave(newNamedLocationFace)
+                    }
                     dismiss()
-                    print("Saved photo named: \(photoName)")
                 }
                 .padding()
             }
@@ -49,8 +52,8 @@ struct NamePhotoView: View {
     
     init(namedFace: NamedFace, onSave: @escaping (NamedFace) -> Void) {
         self.onSave = onSave
-        
         _imageData = State(initialValue: namedFace.imageData)
+        locationFetcher.start()
     }
 }
 
